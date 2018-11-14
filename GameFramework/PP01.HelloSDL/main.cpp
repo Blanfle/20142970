@@ -1,3 +1,4 @@
+#pragma once
 #include "Game.h"
 
 Game* g_game = 0;
