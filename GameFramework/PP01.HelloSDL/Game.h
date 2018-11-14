@@ -1,9 +1,12 @@
 #pragma once
 #include "TextureManager.h"
 #include "Player.h"
+#include "Enemy.h"
+#include <vector>
 
 class Game
 {
+	std::vector<GameObject*> m_gameObjects;
 public:
 	Game() {}
 	~Game() {}
@@ -15,8 +18,9 @@ public:
 	bool running() { return m_bRunning; }
 	int m_currentFrame;
 	TextureManager m_textureManager;
-	GameObject m_go;
-	Player m_player;
+	GameObject* m_go;
+	GameObject* m_player;
+	GameObject* m_enemy;
 
 private:
 	SDL_Window * m_pWindow;
