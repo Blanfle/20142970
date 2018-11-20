@@ -4,6 +4,9 @@
 #include "Enemy.h"
 #include <vector>
 #include "InputHandler.h"
+#include "PlayState.h"
+#include "GameStateMachine.h"
+#include "MenuState.h"
 
 class Game
 {
@@ -24,6 +27,7 @@ public:
 		return s_pInstance;
 	}
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
+	GameStateMachine* m_pGameStateMachine;
 private:
 	Game() {}
 	~Game() {}
