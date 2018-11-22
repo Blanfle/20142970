@@ -4,6 +4,13 @@
 class PlayState : public GameState
 {
 public:
+	static PlayState* Instance()
+	{
+		if (s_pInstance == 0) {
+			s_pInstance = new PlayState();
+		}
+		return s_pInstance;
+	}
 	virtual void update();
 	virtual void render();
 	virtual bool onEnter();

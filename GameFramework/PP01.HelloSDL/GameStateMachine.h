@@ -11,6 +11,7 @@ public:
 	void render();
 
 private:
-	GameState * m_currentState;
+	GameState* m_currentState;
 	GameState* m_prevState;
+	std::vector<GameState*> m_gameStates;
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
-#include "Game.h"
+#include <vector>
+#include "GameObject.h"
 
 class GameState
 {
