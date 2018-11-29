@@ -16,6 +16,7 @@ public:
 	}
 	void update();
 	void clean();
+	void reset();
 	bool isKeyDown(SDL_Scancode key);
 
 	bool getMouseButtonState(int buttonNumber);

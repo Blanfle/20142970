@@ -1,5 +1,6 @@
 #pragma once
 #include "SDLGameObject.h"
+#include "InputHandler.h"
 
 enum button_state
 {

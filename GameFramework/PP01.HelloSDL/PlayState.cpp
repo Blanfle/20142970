@@ -1,13 +1,16 @@
 ﻿#pragma once
 #include "PlayState.h"
-#include "TextureManager.h"
-#include "Game.h"
 
 const std::string PlayState::s_playID = "PLAY";
 PlayState* PlayState::s_pInstance = 0;
 
 void PlayState::update()
 {
+	if (TheInputHandler::Instance()->isKeyDown(
+		SDL_SCANCODE_ESCAPE))
+	{
+		TheGame::Instance()->getStateMachine()->changeState(new PauseState());
+	}
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
 		m_gameObjects[i]->update();
@@ -49,16 +52,9 @@ void SDLGameObject::draw()
 {
 	if (m_velocity.getX() > 0)
 	{
-		TextureManager::Instance()->drawFrame(m_textureID,
-			(Uint32)m_position.getX(), (Uint32)m_position.getY(),
-			m_width, m_height, m_currentRow, m_currentFrame,
-			TheGame::Instance()->getRenderer(),
-			SDL_FLIP_HORIZONTAL);
+		TextureManager::Instance()->drawFrame(m_textureID, (Uint32)m_position.getX(), (Uint32)m_position.getY(), m_width, m_height, m_currentRow, m_currentFrame, TheGame::Instance()->getRenderer(), SDL_FLIP_HORIZONTAL);
 	}
 	else {
-		TextureManager::Instance()->drawFrame(m_textureID,
-			(Uint32)m_position.getX(), (Uint32)m_position.getY(),
-			m_width, m_height, m_currentRow, m_currentFrame,
-			TheGame::Instance()->getRenderer());
+		TextureManager::Instance()->drawFrame(m_textureID, (Uint32)m_position.getX(), (Uint32)m_position.getY(), m_width, m_height, m_currentRow, m_currentFrame, TheGame::Instance()->getRenderer());
 	}
 }

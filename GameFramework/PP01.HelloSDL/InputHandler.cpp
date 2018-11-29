@@ -17,6 +17,10 @@ void InputHandler::clean()
 {
 }
 
+void InputHandler::reset()
+{
+}
+
 bool InputHandler::isKeyDown(SDL_Scancode key)
 {
 	if (m_keystates != 0) {
