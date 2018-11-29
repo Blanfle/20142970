@@ -1,12 +1,6 @@
 #pragma once
 #include "GameStateMachine.h"
 
-//void GameStateMachine::pushState(GameState *pState)
-//{
-//	m_gameStates.push_back(pState);
-//	m_gameStates.back()->onEnter();
-//}
-
 void GameStateMachine::popState()
 {
 	changeState(m_prevState);

@@ -9,6 +9,7 @@ public:
 	int getY() const { return m_y; }
 	int getWidth() const { return m_width; }
 	int getHeight() const { return m_height; }
+	int getPosition() {}
 	std::string getTextureID() const { return m_textureID; }
 private:
 	int m_x;
