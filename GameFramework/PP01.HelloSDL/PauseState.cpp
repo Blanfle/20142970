@@ -6,8 +6,7 @@ PauseState* PauseState::s_pInstance = 0;
 
 void PauseState::s_pauseToMain()
 {
-	TheGame::Instance()->getStateMachine()->changeState(
-		new MenuState());
+	TheGame::Instance()->getStateMachine()->changeState(MenuState::Instance());
 }
 
 void PauseState::s_resumePlay()

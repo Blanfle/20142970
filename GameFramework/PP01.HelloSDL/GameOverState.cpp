@@ -3,23 +3,30 @@
 
 const std::string GameOverState::s_gameOverID = "GAMEOVER";
 GameOverState* GameOverState::s_pInstance = 0;
+
 void GameOverState::update()
 {
-
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->update();
+	}
 }
 
 void GameOverState::render()
 {
-
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->draw();
+	}
 }
 
 void GameOverState::s_gameOverToMain()
 {
-	TheGame::Instance()->getStateMachine()->changeState(new MenuState());
+	TheGame::Instance()->getStateMachine()->changeState(MenuState::Instance());
 }
 void GameOverState::s_restartPlay()
 {
-	TheGame::Instance()->getStateMachine()->changeState(new PlayState());
+	TheGame::Instance()->getStateMachine()->changeState(PlayState::Instance());
 }
 bool GameOverState::onEnter()
 {

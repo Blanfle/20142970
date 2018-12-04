@@ -20,6 +20,6 @@ protected:
 	int m_height;
 	int m_currentRow;
 	int m_currentFrame;
-	int m_numFrames;
+	int m_numFrames = 5;
 	std::string m_textureID;
 };
