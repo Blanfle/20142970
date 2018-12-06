@@ -4,6 +4,8 @@
 #include "Game.h"
 #include "PauseState.h"
 #include "GameOverState.h"
+#include "WinState.h"
+#include "Wall.h"
 
 class GameObject;
 class PlayState : public GameState
