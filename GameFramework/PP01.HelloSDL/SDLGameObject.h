@@ -13,6 +13,7 @@ public:
 	int getHeight() { return m_height; }
 	SDLGameObject(const LoaderParams* pParams);
 	virtual void draw();
+	virtual void draw2();
 	virtual void update();
 	virtual void clean();
 protected:

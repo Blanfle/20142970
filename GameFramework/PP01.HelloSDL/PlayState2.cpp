@@ -1,10 +1,10 @@
-﻿#pragma once
-#include "PlayState.h"
+#pragma once
+#include "PlayState2.h"
 
-const std::string PlayState::s_playID = "PLAY";
-PlayState* PlayState::s_pInstance = 0;
+const std::string PlayState2::s_playID = "PLAY";
+PlayState2* PlayState2::s_pInstance = 0;
 
-void PlayState::update()
+void PlayState2::update()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++) {
 		m_gameObjects[i]->update();
@@ -31,48 +31,48 @@ void PlayState::update()
 	}
 	else if (checkCollision(dynamic_cast<SDLGameObject*>(m_gameObjects[2]), dynamic_cast<SDLGameObject*>(m_gameObjects[0])))
 	{
-		TheGame::Instance()->getStateMachine()->changeState(PlayState2::Instance());
+		TheGame::Instance()->getStateMachine()->changeState(WinState::Instance());
 	}
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_ESCAPE))
 	{
 		TheGame::Instance()->getStateMachine()->changeState(PauseState::Instance());
 	}
 }
-void PlayState::render()
+void PlayState2::render()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
 		m_gameObjects[i]->draw();
 	}
 }
-bool PlayState::onEnter()
+bool PlayState2::onEnter()
 {
 	if (!TheTextureManager::Instance()->load("assets/helicopter.png", "helicopter", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
-	if (!TheTextureManager::Instance()->load("assets/helicopter2.png", "helicopter2", TheGame::Instance()->getRenderer())) {
+	if (!TheTextureManager::Instance()->load("assets/helicopter3.png", "helicopter3", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
 	if (!TheTextureManager::Instance()->load("assets/wall.png", "wall", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
-	if (!TheTextureManager::Instance()->load("assets/sky.png", "sky", TheGame::Instance()->getRenderer())) {
+	if (!TheTextureManager::Instance()->load("assets/city.png", "city", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
-	m_gameObjects.push_back(new Wall(new LoaderParams(-50, 0, 128, 480, "wall")));
-	m_gameObjects.push_back(new Sky(new LoaderParams(0, 0, 1280, 480, "sky")));
-	m_gameObjects.push_back(new Player(new LoaderParams(1200, 100, 128, 55, "helicopter")));
-	m_gameObjects.push_back(new Enemy(new LoaderParams(100, 200, 128, 55, "helicopter2")));
-	m_gameObjects.push_back(new Enemy(new LoaderParams(300, 50, 128, 55, "helicopter2")));
-	m_gameObjects.push_back(new Enemy(new LoaderParams(500, 300, 128, 55, "helicopter2")));
-	m_gameObjects.push_back(new Enemy(new LoaderParams(700, 100, 128, 55, "helicopter2")));
-	m_gameObjects.push_back(new Enemy(new LoaderParams(900, 400, 128, 55, "helicopter2")));
-	
+	m_gameObjects.push_back(new Wall(new LoaderParams(1200, 0, 128, 480, "wall")));
+	m_gameObjects.push_back(new Sky(new LoaderParams(0, 0, 1280, 480, "city")));
+	m_gameObjects.push_back(new Player(new LoaderParams(50, 100, 128, 55, "helicopter")));
+	m_gameObjects.push_back(new Enemy2(new LoaderParams(300, 200, 128, 55, "helicopter2")));
+	m_gameObjects.push_back(new Enemy2(new LoaderParams(500, 50, 128, 55, "helicopter2")));
+	m_gameObjects.push_back(new Enemy2(new LoaderParams(700, 300, 128, 55, "helicopter2")));
+	m_gameObjects.push_back(new Enemy2(new LoaderParams(900, 100, 128, 55, "helicopter2")));
+	m_gameObjects.push_back(new Enemy2(new LoaderParams(1100, 400, 128, 55, "helicopter2")));
+
 	std::cout << "entering PlayState\n";
 	return true;
 }
 
-bool PlayState::onExit()
+bool PlayState2::onExit()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -85,7 +85,7 @@ bool PlayState::onExit()
 	return true;
 }
 
-void SDLGameObject::draw()
+void SDLGameObject::draw2()
 {
 	if (m_velocity.getX() > 0)
 	{
@@ -95,7 +95,7 @@ void SDLGameObject::draw()
 		TextureManager::Instance()->drawFrame(m_textureID, (Uint32)m_position.getX(), (Uint32)m_position.getY(), m_width, m_height, m_currentRow, m_currentFrame, TheGame::Instance()->getRenderer());
 	}
 }
-bool PlayState::checkCollision(SDLGameObject* p1, SDLGameObject* p2)
+bool PlayState2::checkCollision(SDLGameObject* p1, SDLGameObject* p2)
 {
 	int leftA, leftB;
 	int rightA, rightB;

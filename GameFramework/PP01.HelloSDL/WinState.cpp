@@ -42,7 +42,7 @@ bool WinState::onEnter()
 	{
 		return false;
 	}
-	GameObject* winText = new AnimatedGraphic(new  LoaderParams(550, 100, 190, 30, "wintext"), 2);
+	GameObject* winText = new AnimatedGraphic(new  LoaderParams(590, 30, 121, 161, "wintext"), 5, 1);
 	GameObject* button1 = new MenuButton(new LoaderParams(550, 200, 200, 80, "mainbutton"), s_winToMain);
 	GameObject* button2 = new MenuButton(new LoaderParams(550, 300, 200, 80, "restartbutton"), s_restartPlay);
 	m_gameObjects.push_back(winText);

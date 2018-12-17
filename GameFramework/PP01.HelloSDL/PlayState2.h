@@ -7,16 +7,15 @@
 #include "WinState.h"
 #include "Wall.h"
 #include "Sky.h"
-#include "PlayState2.h"
 
 class GameObject;
-class PlayState : public GameState
+class PlayState2 : public GameState
 {
 public:
-	static PlayState* Instance()
+	static PlayState2* Instance()
 	{
 		if (s_pInstance == 0) {
-			s_pInstance = new PlayState();
+			s_pInstance = new PlayState2();
 		}
 		return s_pInstance;
 	}
@@ -28,6 +27,6 @@ public:
 	virtual std::string getStateID() const { return s_playID; }
 private:
 	static const std::string s_playID;
-	static PlayState* s_pInstance;
+	static PlayState2* s_pInstance;
 	std::vector<GameObject*> m_gameObjects;
 };

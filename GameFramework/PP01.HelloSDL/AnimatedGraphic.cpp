@@ -1,8 +1,10 @@
 #pragma once
 #include "AnimatedGraphic.h"
 
-AnimatedGraphic::AnimatedGraphic(const LoaderParams* pParams, int animSpeed) : SDLGameObject(pParams), m_animSpeed(animSpeed)
+AnimatedGraphic::AnimatedGraphic(const LoaderParams* pParams, int animSpeed, int numFrames) :
+	SDLGameObject(pParams), m_animSpeed(animSpeed)
 {
+	m_numFrames = numFrames;
 }
 
 void AnimatedGraphic::update()

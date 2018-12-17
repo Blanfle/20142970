@@ -5,7 +5,7 @@
 class AnimatedGraphic : public SDLGameObject 
 {
 public:
-	AnimatedGraphic(const LoaderParams* pParams, int animSpeed);
+	AnimatedGraphic(const LoaderParams* pParams, int animSpeed, int numFrames);
 	void update();
 	int m_animSpeed;
 };
