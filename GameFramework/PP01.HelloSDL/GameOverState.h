@@ -25,5 +25,4 @@ private:
 	static void s_restartPlay();
 	static GameOverState* s_pInstance;
 	static const std::string s_gameOverID;
-//	std::vector<GameObject*> m_gameObjects;
 };
